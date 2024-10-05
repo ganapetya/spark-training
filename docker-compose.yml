@@ -12,6 +12,9 @@ services:
       - SPARK_USER=spark
     ports:
       - '8080:8080'
+    volumes:
+       - ./apps:/opt/spark-apps
+       - ./data:/opt/spark-data  
   spark-worker:
     image: docker.io/bitnami/spark:3.5
     environment:
@@ -24,13 +27,21 @@ services:
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
       - SPARK_USER=spark
+    volumes:
+       - ./apps:/opt/spark-apps
+       - ./data:/opt/spark-data      
   notebook:
-    image: quay.io/jupyter/all-spark-notebook
+    image: peter/all-spark-notebook
     container_name: notebook
     ports:
       - "8888:8888"
       - "4040:4040"
     environment:
       - JUPYTER_ENABLE_LAB=yes
+    volumes:
+       - ./apps:/opt/spark-apps
+       - ./data:/opt/spark-data
+    
+                
     
                  
