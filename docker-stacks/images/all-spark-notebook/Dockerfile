@@ -36,3 +36,4 @@ RUN mamba install --yes     'r-sparklyr'
 RUN mamba clean --all -f -y 
 RUN fix-permissions "${CONDA_DIR}" 
 RUN fix-permissions "/home/${NB_USER}"
+
