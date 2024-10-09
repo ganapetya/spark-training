@@ -1,0 +1,2 @@
+ - some excercises from the book "Learning Spark" 2-d edition
+ - some docker images to deploy spark and jupyter notebook
